@@ -27,11 +27,11 @@ class AuthenticatedSessionController extends Controller
     {
         $targetApp = $request->string('target_app')->value();
         $appUrls = [
-            'drawing' => env('APP_DRAWING_URL', 'https://promise.summitadyawinsa.co.id/app/drw'),
-            'inventory' => env('APP_INVENTORY_URL', 'https://promise.summitadyawinsa.co.id/app/inv'),
-            'npc' => env('APP_NPC_URL', 'https://promise.summitadyawinsa.co.id/app/npc'),
-            'all_dashboard' => env('APP_ALL_DASHBOARD_URL', 'https://promise.summitadyawinsa.co.id/app/dash'),
-            'management' => env('APP_MNG_URL', 'https://promise.summitadyawinsa.co.id/app/mng'),
+            'drawing' => config('services.sso.drawing'),
+            'inventory' => config('services.sso.inventory'),
+            'npc' => config('services.sso.npc'),
+            'all_dashboard' => config('services.sso.all_dashboard'),
+            'management' => config('services.sso.management'),
         ];
 
         if (! Auth::check()) {
