@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body class="min-h-screen overflow-x-hidden bg-[#f8fbff] text-[#13294b] antialiased [font-family:'Outfit',sans-serif]">
     @php
-        $selectedApp = old('target_app');
+    $selectedApp = old('target_app');
     @endphp
 
     <main class="grid min-h-screen lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)]">
@@ -39,15 +41,15 @@
                 </div>
 
                 @if (session('status'))
-                    <div class="mb-4 rounded-xs border border-green-300/90 bg-green-100/80 px-4 py-4 text-[0.95rem] text-green-800">
-                        {{ session('status') }}
-                    </div>
+                <div class="mb-4 rounded-xs border border-green-300/90 bg-green-100/80 px-4 py-4 text-[0.95rem] text-green-800">
+                    {{ session('status') }}
+                </div>
                 @endif
 
                 @if ($errors->has('nik') && !$errors->has('password'))
-                    <div class="mb-4 rounded-xs border border-red-300/90 bg-red-50/90 px-4 py-4 text-[0.95rem] text-red-700">
-                        {{ $errors->first('nik') }}
-                    </div>
+                <div class="mb-4 rounded-xs border border-red-300/90 bg-red-50/90 px-4 py-4 text-[0.95rem] text-red-700">
+                    {{ $errors->first('nik') }}
+                </div>
                 @endif
 
                 <form method="POST" action="{{ route('login') }}" data-login-form>
@@ -64,15 +66,17 @@
                     </p>
 
                     @error('target_app')
-                        <div class="mb-4 rounded-xs border border-red-300/90 bg-red-50/90 px-4 py-4 text-[0.95rem] text-red-700">
-                            {{ $message }}
-                        </div>
+                    <div class="mb-4 rounded-xs border border-red-300/90 bg-red-50/90 px-4 py-4 text-[0.95rem] text-red-700">
+                        {{ $message }}
+                    </div>
                     @enderror
 
                     <div class="relative group mt-1 sm:mt-2">
                         <!-- Navigation Buttons -->
                         <button type="button" data-carousel-prev class="absolute -left-2 top-[45%] -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 shadow-md border border-slate-200/80 text-blue-600 transition-all duration-300 hover:bg-white hover:scale-110 active:scale-95 disabled:opacity-0 focus:outline-none sm:-left-4">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m15 18-6-6 6-6" />
+                            </svg>
                         </button>
 
                         <div id="app-carousel" class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide gap-2 sm:gap-3 pb-2 pt-1">
@@ -81,9 +85,9 @@
                                 <div class="flex h-[106px] flex-col items-center justify-center rounded-xs border border-slate-300/70 bg-slate-50/90 px-2 py-3 text-center transition-all duration-200 group-hover/item:border-blue-500/55 peer-checked:border-blue-500/55 peer-checked:bg-gradient-to-b peer-checked:from-blue-50/95 peer-checked:to-blue-100/70 sm:px-3 sm:py-4">
                                     <div class="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-xs bg-gradient-to-br from-blue-600/15 to-blue-600/10 text-blue-600 peer-checked:bg-gradient-to-br peer-checked:from-blue-600 peer-checked:to-blue-500 peer-checked:text-white sm:mb-2.5 sm:h-9 sm:w-9">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                            <path d="M4 7.5L12 4L20 7.5L12 11L4 7.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-                                            <path d="M4 12.5L12 16L20 12.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M4 17L12 20L20 17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M4 7.5L12 4L20 7.5L12 11L4 7.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                                            <path d="M4 12.5L12 16L20 12.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M4 17L12 20L20 17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
                                     <div class="text-[0.76rem] font-semibold leading-tight text-[#13294b] sm:text-[0.9rem]">Drawing</div>
@@ -95,9 +99,9 @@
                                 <div class="flex h-[106px] flex-col items-center justify-center rounded-xs border border-slate-300/70 bg-slate-50/90 px-2 py-3 text-center transition-all duration-200 group-hover/item:border-blue-500/55 peer-checked:border-blue-500/55 peer-checked:bg-gradient-to-b peer-checked:from-blue-50/95 peer-checked:to-blue-100/70 sm:px-3 sm:py-4">
                                     <div class="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-xs bg-gradient-to-br from-indigo-600/15 to-indigo-600/10 text-indigo-600 peer-checked:bg-gradient-to-br peer-checked:from-indigo-600 peer-checked:to-indigo-500 peer-checked:text-white sm:mb-2.5 sm:h-9 sm:w-9">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                            <path d="M3.75 7.75L12 4L20.25 7.75L12 11.5L3.75 7.75Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-                                            <path d="M3.75 7.75V16.25L12 20V11.5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-                                            <path d="M20.25 7.75V16.25L12 20" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                                            <path d="M3.75 7.75L12 4L20.25 7.75L12 11.5L3.75 7.75Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                                            <path d="M3.75 7.75V16.25L12 20V11.5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                                            <path d="M20.25 7.75V16.25L12 20" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
                                         </svg>
                                     </div>
                                     <div class="text-[0.76rem] font-semibold leading-tight text-[#13294b] sm:text-[0.9rem]">Inventory</div>
@@ -109,16 +113,16 @@
                                 <div class="flex h-[106px] flex-col items-center justify-center rounded-xs border border-slate-300/70 bg-slate-50/90 px-2 py-3 text-center transition-all duration-200 group-hover/item:border-blue-500/55 peer-checked:border-blue-500/55 peer-checked:bg-gradient-to-b peer-checked:from-blue-50/95 peer-checked:to-blue-100/70 sm:px-3 sm:py-4">
                                     <div class="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-xs bg-gradient-to-br from-emerald-600/15 to-emerald-600/10 text-emerald-600 peer-checked:bg-gradient-to-br peer-checked:from-emerald-600 peer-checked:to-emerald-500 peer-checked:text-white sm:mb-2.5 sm:h-9 sm:w-9">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                            <rect x="6" y="6" width="12" height="12" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
-                                            <path d="M9 3.75V6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                            <path d="M15 3.75V6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                            <path d="M9 18V20.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                            <path d="M15 18V20.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                            <path d="M18 9H20.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                            <path d="M18 15H20.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                            <path d="M3.75 9H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                            <path d="M3.75 15H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                            <path d="M9.5 9.5H14.5V14.5H9.5V9.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                                            <rect x="6" y="6" width="12" height="12" rx="2.5" stroke="currentColor" stroke-width="1.7" />
+                                            <path d="M9 3.75V6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                                            <path d="M15 3.75V6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                                            <path d="M9 18V20.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                                            <path d="M15 18V20.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                                            <path d="M18 9H20.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                                            <path d="M18 15H20.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                                            <path d="M3.75 9H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                                            <path d="M3.75 15H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                                            <path d="M9.5 9.5H14.5V14.5H9.5V9.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
                                         </svg>
                                     </div>
                                     <div class="text-[0.76rem] font-semibold leading-tight text-[#13294b] sm:text-[0.9rem]">NPC</div>
@@ -130,8 +134,8 @@
                                 <div class="flex h-[106px] flex-col items-center justify-center rounded-xs border border-slate-300/70 bg-slate-50/90 px-2 py-3 text-center transition-all duration-200 group-hover/item:border-blue-500/55 peer-checked:border-blue-500/55 peer-checked:bg-gradient-to-b peer-checked:from-blue-50/95 peer-checked:to-blue-100/70 sm:px-3 sm:py-4">
                                     <div class="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-xs bg-gradient-to-br from-violet-600/15 to-violet-600/10 text-violet-600 peer-checked:bg-gradient-to-br peer-checked:from-violet-600 peer-checked:to-violet-500 peer-checked:text-white sm:mb-2.5 sm:h-9 sm:w-9">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                            <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-                                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                                            <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
                                         </svg>
                                     </div>
                                     <div class="text-[0.76rem] font-semibold leading-tight text-[#13294b] sm:text-[0.9rem]">Management</div>
@@ -143,10 +147,10 @@
                                 <div class="flex h-[106px] flex-col items-center justify-center rounded-xs border border-slate-300/70 bg-slate-50/90 px-2 py-3 text-center transition-all duration-200 group-hover/item:border-blue-500/55 peer-checked:border-blue-500/55 peer-checked:bg-gradient-to-b peer-checked:from-blue-50/95 peer-checked:to-blue-100/70 sm:px-3 sm:py-4">
                                     <div class="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-xs bg-gradient-to-br from-amber-600/15 to-amber-600/10 text-amber-600 peer-checked:bg-gradient-to-br peer-checked:from-amber-600 peer-checked:to-amber-500 peer-checked:text-white sm:mb-2.5 sm:h-9 sm:w-9">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                            <rect width="7" height="9" x="3" y="3" rx="1" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-                                            <rect width="7" height="5" x="14" y="3" rx="1" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-                                            <rect width="7" height="9" x="14" y="12" rx="1" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-                                            <rect width="7" height="5" x="3" y="16" rx="1" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                                            <rect width="7" height="9" x="3" y="3" rx="1" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                                            <rect width="7" height="5" x="14" y="3" rx="1" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                                            <rect width="7" height="9" x="14" y="12" rx="1" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                                            <rect width="7" height="5" x="3" y="16" rx="1" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
                                         </svg>
                                     </div>
                                     <div class="text-[0.76rem] font-semibold leading-tight text-[#13294b] sm:text-[0.9rem]">All Dashboard</div>
@@ -155,7 +159,9 @@
                         </div>
 
                         <button type="button" data-carousel-next class="absolute -right-2 top-[45%] -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 shadow-md border border-slate-200/80 text-blue-600 transition-all duration-300 hover:bg-white hover:scale-110 active:scale-95 disabled:opacity-0 focus:outline-none sm:-right-4">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
                         </button>
                     </div>
 
@@ -176,11 +182,10 @@
                                 autofocus
                                 autocomplete="username"
                                 placeholder="Enter your NIK"
-                                class="h-[3.15rem] w-full rounded-xs border border-[#cdd5e3] bg-white/95 px-4 text-[0.95rem] font-medium text-[#13294b] outline-none transition focus:border-blue-600/65 placeholder:font-normal placeholder:text-slate-400"
-                            >
+                                class="h-[3.15rem] w-full rounded-xs border border-[#cdd5e3] bg-white/95 px-4 text-[0.95rem] font-medium text-[#13294b] outline-none transition focus:border-blue-600/65 placeholder:font-normal placeholder:text-slate-400">
                         </div>
                         @error('nik')
-                            <p class="mt-2 text-[0.84rem] font-medium text-red-600">{{ $message }}</p>
+                        <p class="mt-2 text-[0.84rem] font-medium text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
 
@@ -194,17 +199,16 @@
                                 required
                                 autocomplete="current-password"
                                 placeholder="Enter your password"
-                                class="h-[3.15rem] w-full rounded-xs border border-[#cdd5e3] bg-white/95 px-4 text-[0.95rem] font-medium text-[#13294b] outline-none transition focus:border-blue-600/65 placeholder:font-normal placeholder:text-slate-400"
-                            >
+                                class="h-[3.15rem] w-full rounded-xs border border-[#cdd5e3] bg-white/95 px-4 text-[0.95rem] font-medium text-[#13294b] outline-none transition focus:border-blue-600/65 placeholder:font-normal placeholder:text-slate-400">
                             <button type="button" class="absolute right-3 top-1/2 inline-flex h-8.5 w-8.5 -translate-y-1/2 items-center justify-center rounded-xs bg-blue-600/8 text-[#7182aa] transition hover:bg-blue-600/14 hover:text-blue-600" data-password-toggle aria-label="Show password">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path d="M2 12C3.8 8.5 7.4 6 12 6C16.6 6 20.2 8.5 22 12C20.2 15.5 16.6 18 12 18C7.4 18 3.8 15.5 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+                                    <path d="M2 12C3.8 8.5 7.4 6 12 6C16.6 6 20.2 8.5 22 12C20.2 15.5 16.6 18 12 18C7.4 18 3.8 15.5 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8" />
                                 </svg>
                             </button>
                         </div>
                         @error('password')
-                            <p class="mt-2 text-[0.84rem] font-medium text-red-600">{{ $message }}</p>
+                        <p class="mt-2 text-[0.84rem] font-medium text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
 
@@ -218,8 +222,7 @@
                     <button
                         type="submit"
                         class="submit-button relative h-[3.3rem] w-full overflow-hidden rounded-xs bg-gradient-to-br from-blue-600 to-blue-500 text-[0.95rem] font-bold tracking-[-0.01em] text-white transition hover:brightness-[1.03] disabled:cursor-not-allowed disabled:opacity-[0.7] disabled:hover:translate-y-0 disabled:hover:brightness-100"
-                        {{ $selectedApp ? '' : 'disabled' }}
-                    >
+                        {{ $selectedApp ? '' : 'disabled' }}>
                         <span class="pointer-events-none relative z-10 inline-flex items-center justify-center gap-2">
                             <svg class="submit-spinner hidden h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                 <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-opacity="0.28" stroke-width="2.2"></circle>
@@ -273,7 +276,7 @@
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const loginForm = document.querySelector('[data-login-form]');
             const toggleButton = document.querySelector('[data-password-toggle]');
             const passwordInput = document.getElementById('password');
@@ -285,7 +288,7 @@
             let isSubmitting = false;
 
             if (toggleButton && passwordInput) {
-                toggleButton.addEventListener('click', function () {
+                toggleButton.addEventListener('click', function() {
                     const isHidden = passwordInput.type === 'password';
                     passwordInput.type = isHidden ? 'text' : 'password';
                     toggleButton.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
@@ -293,15 +296,15 @@
             }
 
             if (submitButton && appOptions.length) {
-                const syncSubmitState = function () {
-                    const hasSelection = Array.from(appOptions).some(function (option) {
+                const syncSubmitState = function() {
+                    const hasSelection = Array.from(appOptions).some(function(option) {
                         return option.checked;
                     });
 
                     submitButton.disabled = !hasSelection;
                 };
 
-                appOptions.forEach(function (option) {
+                appOptions.forEach(function(option) {
                     option.addEventListener('change', syncSubmitState);
                 });
 
@@ -317,28 +320,34 @@
                 const updateButtons = () => {
                     const scrollLeft = carousel.scrollLeft;
                     const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-                    
+
                     prevBtn.style.visibility = scrollLeft <= 0 ? 'hidden' : 'visible';
                     nextBtn.style.visibility = scrollLeft >= maxScroll - 1 ? 'hidden' : 'visible';
                 };
 
                 prevBtn.addEventListener('click', () => {
-                    carousel.scrollBy({ left: -200, behavior: 'smooth' });
+                    carousel.scrollBy({
+                        left: -200,
+                        behavior: 'smooth'
+                    });
                 });
 
                 nextBtn.addEventListener('click', () => {
-                    carousel.scrollBy({ left: 200, behavior: 'smooth' });
+                    carousel.scrollBy({
+                        left: 200,
+                        behavior: 'smooth'
+                    });
                 });
 
                 carousel.addEventListener('scroll', updateButtons);
                 window.addEventListener('resize', updateButtons);
-                
+
                 // Initial check
                 setTimeout(updateButtons, 100);
             }
 
             if (loginForm && submitButton) {
-                loginForm.addEventListener('submit', function (event) {
+                loginForm.addEventListener('submit', function(event) {
                     if (isSubmitting) {
                         event.preventDefault();
                         return;
@@ -368,17 +377,21 @@
             0% {
                 transform: translateX(-140%);
             }
+
             100% {
                 transform: translateX(320%);
             }
         }
+
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
+
         .scrollbar-hide {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
     </style>
 </body>
+
 </html>

@@ -23,7 +23,6 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    /*Logika SSO*/
     public function store(LoginRequest $request): RedirectResponse
     {
         $targetApp = $request->string('target_app')->value();
