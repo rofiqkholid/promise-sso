@@ -49,14 +49,15 @@ class AuthenticatedSessionController extends Controller
             'all_dashboard' => 'app_dashboard',
             'management' => 'app_management',
         ];
-        $column = $columnMap[$targetApp] ?? null;
+        $scopeId = $columnMap[$targetApp] ?? null;
 
-        if ($column) {
-            $hasAccess = DB::table('t1000_sso_user_access_app')
-                ->where('id_user', $user->id)
-                ->value($column);
+        if ($scopeId) {
+            $hasAccess = DB::table('user_scope_roles')
+                ->where('user_id', $user->id)
+                ->where('scope_id', $scopeId)
+                ->exists();
 
-            if (filter_var($hasAccess, FILTER_VALIDATE_BOOLEAN) === false) {
+            if (!$hasAccess) {
                 Auth::guard('web')->logout();
 
                 return back()->withErrors([
