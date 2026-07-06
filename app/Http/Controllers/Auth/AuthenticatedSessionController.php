@@ -66,26 +66,10 @@ class AuthenticatedSessionController extends Controller
             }
         }
 
-        $allowedMenuIds = DB::table('role_menu')
-            ->where('user_id', $user->id)
-            ->where('can_view', 1)
-            ->distinct()
-            ->pluck('menu_id')
-            ->all();
-
         $request->session()->put([
             'name' => $user->name,
             'email' => $user->email,
-            'allowed_menus' => $allowedMenuIds,
         ]);
-
-        if ($allowedMenuIds === []) {
-            Auth::guard('web')->logout();
-
-            return back()->withErrors([
-                'nik' => 'Your account does not have access rights.',
-            ])->withInput($request->only('nik'));
-        }
 
         return redirect()->away($appUrls[$targetApp]);
     }
